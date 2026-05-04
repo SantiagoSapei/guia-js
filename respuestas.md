@@ -23,7 +23,6 @@ El primer mensaje: Cuando llamás a la función mostrarNombre(), el programa ent
 
 El segundo mensaje: Una vez que la función termina, esa "cajita" se destruye. Cuando hacés el último console.log afuera, el programa ya no tiene acceso a lo que pasó dentro de la función, así que solo puede ver el nombre que declaraste al principio de todo (el global).
 
-
 29. Diferencia entre array y objeto
 Array (Lista): Es ideal para guardar muchas cosas iguales o similares en fila.
 
