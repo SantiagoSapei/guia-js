@@ -96,3 +96,96 @@ console.log("Ex 12: La puerta se abre");
 } else {
 console.log("Ex 12: Necesitás una llave");
 }
+// --- BLOQUE 2: Funciones, Objetos y DOM Avanzado ---
+
+// 13. Función de saludo
+function saludarUsuario(nombreUsuario) {
+    console.log(`Ex 13: Bienvenido/a, ${nombreUsuario}`);
+}
+saludarUsuario("Milo");
+
+// 14. Función para calcular daño
+function calcularVidaRestante(vida, danio) {
+    return vida - danio;
+}
+let resultadoVida = calcularVidaRestante(100, 30);
+console.log("Ex 14 - Vida restante:", resultadoVida);
+
+// 15. Arrow functions
+const sumar = (a, b) => a + b;
+console.log("Ex 15 - Suma:", sumar(10, 5));
+
+// 16. Objeto jugador
+const jugador = {
+    nombre: "Luna",
+    vida: 100,
+    energia: 80,
+    nivel: 1,
+    inventario: ["espada", "poción"]
+};
+console.log("Ex 16 - Jugador:", jugador);
+
+// 17. Modificar propiedades
+const jugador2 = {
+    nombre: "Kai",
+    nivel: 1,
+    monedas: 0
+};
+jugador2.nivel += 1;
+jugador2.monedas += 50;
+console.log("Ex 17 - Jugador actualizado:", jugador2);
+
+// 18. Array de objetos (Usando los personajes de data.js)
+// Nota: 'personajes' ya viene definido en data.js
+console.log("Ex 18 - Lista de personajes:");
+personajes.forEach(p => {
+    console.log(`${p.nombre} es ${p.tipo} y está en nivel ${p.nivel}`);
+});
+
+// 19. Filtrar personajes por nivel
+const personajesFuertes = personajes.filter(p => p.nivel >= 3);
+console.log("Ex 19 - Personajes fuertes:", personajesFuertes);
+
+// 20. Obtener solo los nombres
+const nombres = personajes.map(p => p.nombre);
+console.log("Ex 20 - Nombres:", nombres);
+
+// 21. Buscar un personaje
+const personajeEncontrado = personajes.find(p => p.nombre === "Kai");
+console.log("Ex 21 - Encontrado:", personajeEncontrado);
+
+// 22. Calcular total de vida
+const vidaTotal = personajes.reduce((acc, p) => acc + p.vida, 0);
+console.log("Ex 22 - Vida total del equipo:", vidaTotal);
+
+// 23. Mostrar mensaje en pantalla (DOM)
+mensajePantalla.textContent = "Bienvenido a la guía de JavaScript";
+mensajePantalla.style.color = "blue"; // Desafío extra
+
+// 24. Botón que suma puntos
+let puntos = 0;
+botonEjecutar.addEventListener("click", function () {
+    puntos += 10;
+    mensajePantalla.textContent = `Puntos: ${puntos}`;
+});
+
+// 25. Validar nombre de usuario
+const inputNombre = document.getElementById("dato");
+// Usaremos el mismo botón para esta validación según la consigna
+botonEjecutar.addEventListener("click", function () {
+    if (inputNombre.value === "") {
+        console.log("Ex 25: Ingresá un nombre para continuar");
+    } else {
+        console.log(`Ex 25: Bienvenido/a, ${inputNombre.value}`);
+}
+});
+
+// 26. Guardar puntaje en LocalStorage
+const datosJugador = {
+nombre: "Luna",
+puntaje: 1500
+};
+
+localStorage.setItem("jugadorGuardado", JSON.stringify(datosJugador));
+const recuperado = JSON.parse(localStorage.getItem("jugadorGuardado"));
+console.log("Ex 26 - Recuperado de LocalStorage:", recuperado);
